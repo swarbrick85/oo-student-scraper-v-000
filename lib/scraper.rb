@@ -6,7 +6,7 @@ class Scraper
 
   attr_accessor :student_hashes, :bio, :quote, :twitter, :linkedin, :github, :blog, :student_hashe
   @student_hashes = []
-  
+
 
 
   def self.scrape_index_page(index_url)
