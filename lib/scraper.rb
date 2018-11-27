@@ -40,7 +40,7 @@ class Scraper
         twitter = x["href"]
       elsif x["href"].include?("github")
         github = x["href"]
-      elsif x["href"].include("linkedin")
+      elsif x["href"].include?("linkedin")
         linkedin = x["href"]
       else
         blog = x["href"]
