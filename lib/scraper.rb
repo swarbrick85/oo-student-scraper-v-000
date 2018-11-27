@@ -6,7 +6,7 @@ class Scraper
 
   attr_accessor :student_hashes, :bio, :quote, :twitter, :linkedin, :github, :blog, :student_hashe
   @student_hashes = []
-  @student_hash = {}
+  student_hash = {}
 
 
   def self.scrape_index_page(index_url)
@@ -32,23 +32,20 @@ class Scraper
   def self.scrape_profile_page(profile_url)
     doc = Nokogiri::HTML(open("#{profile_url}"))
 
-      a = 0
-      b = 0
-      c = 0
-      d = 0
+      
 
       bio = doc.css("p").text
       quote = doc.css("div")[6].text
 
     doc.css("a").each do |x|
       if x["href"].include?("twitter")
-        @student_hash[:twitter] = x["href"]
+        student_hash[:twitter] = x["href"]
       elsif x["href"].include?("github")
-        @student_hash[:github] = x["href"]
+        student_hash[:github] = x["href"]
       elsif x["href"].include?("linkedin")
-        @student_hash[:linkedin] = x["href"]
+        student_hash[:linkedin] = x["href"]
       else
-        @student_hash[:blog] = x["href"]
+        student_hash[:blog] = x["href"]
         d += 1
       end
     end
