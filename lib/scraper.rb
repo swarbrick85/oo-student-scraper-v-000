@@ -44,7 +44,7 @@ class Scraper
         student_hash[:github] = x["href"]
       elsif x["href"].include?("linkedin")
         student_hash[:linkedin] = x["href"]
-      else
+      elsif x["href"].include?("https://")
         student_hash[:blog] = x["href"]
       end
     end
