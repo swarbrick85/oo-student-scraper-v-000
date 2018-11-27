@@ -32,7 +32,7 @@ class Scraper
   def self.scrape_profile_page(profile_url)
     doc = Nokogiri::HTML(open("#{profile_url}"))
 
-      
+
 
       bio = doc.css("p").text
       quote = doc.css("div")[6].text
@@ -52,12 +52,12 @@ class Scraper
 
 
     if bio
-      @student_hash[:bio] = bio
+      student_hash[:bio] = bio
     end
     if quote
-      @student_hash[:profile_quote] = quote
+      student_hash[:profile_quote] = quote
     end
-    @student_hash
+    student_hash
 
   end
 
