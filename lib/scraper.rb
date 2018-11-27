@@ -41,10 +41,10 @@ class Scraper
       elsif x["href"].include?("github")
         github = x["href"]
       elsif x["href"].include("linkedin")
-        linkedin = x["href"] 
-      else 
+        linkedin = x["href"]
+      else
         blog = x["href"]
-      end 
+      end
     end
 
 
