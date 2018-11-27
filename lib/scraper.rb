@@ -56,7 +56,7 @@ class Scraper
       end
     end
 
-binding.pry
+
     if a == 1
       @student_hash[:twitter] = twitter
     end
