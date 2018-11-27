@@ -31,28 +31,22 @@ class Scraper
 
   def self.scrape_profile_page(profile_url)
     doc = Nokogiri::HTML(open("#{profile_url}"))
+
       bio = doc.css("p").text
       quote = doc.css("div")[6].text
-binding.pry
+
     doc.css("a").each do |x|
-      puts x
+      if x["href"].include?("twitter")
+        twitter = x["href"]
+      elsif x["href"].include?("github")
+        github = x["href"]
+      elsif x["href"].include("linkedin")
+        linkedin = x["href"] 
+      else 
+        blog = x["href"]
+      end 
     end
 
-
-
-
-    if doc.css("a")[1]["href"]
-      twitter = doc.css("a")[1]["href"]
-    end
-    if doc.css("a")[2]["href"]
-      linkedin = doc.css("a")[2]["href"]
-    end
-    if doc.css("a")[3]["href"]
-      github = doc.css("a")[3]["href"]
-    end
-    if doc.css("a")[4]["href"]
-      blog = doc.css("a")[4]["href"]
-    end
 
     if twitter
       @student_hash[:twitter] = twitter
