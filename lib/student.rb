@@ -18,13 +18,7 @@ class Student
   end
 
   def add_student_attributes(attributes_hash)
-    x = @@all.find {|student| student.name == attributes_hash.name} 
-    x[:bio] = attributes_hash[:bio]
-    x[:profile_quote] = attributes_hash[:profile_quote]
-    x[:twitter] = attributes_hash[:twitter]
-    x[:linkedin] = attributes_hash[:linkedin]
-    x[:github] = attributes_hash[:github]
-    x[:blog] = attributes_hash[:blog]
+    attributes_hash.each {|key, value| self.send(("#{key}="), value)}
   end
 
   def self.all
