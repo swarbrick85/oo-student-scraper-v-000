@@ -40,26 +40,30 @@ class Scraper
     doc.css("a").each do |x|
       if x["href"].include?("twitter")
         twitter = x["href"]
+        a += 1
       elsif x["href"].include?("github")
         github = x["href"]
+        b = += 1
       elsif x["href"].include?("linkedin")
         linkedin = x["href"]
+        c += 1
       else
         blog = x["href"]
+        d += 1
       end
     end
 
 
-    if twitter
+    if a == 1
       @student_hash[:twitter] = twitter
     end
-    if linkedin
+    if c == 1
       @student_hash[:linkedin] = linkedin
     end
-    if github
+    if b == 1
       @student_hash[:github] = github
     end
-    if blog
+    if d == 1
       @student_hash[:blog] = blog
     end
     if bio
